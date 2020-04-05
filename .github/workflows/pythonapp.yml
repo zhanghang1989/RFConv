@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v1
     - name: Set up Python 3.7
       uses: actions/setup-python@v1
       with:
@@ -26,6 +26,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install numpy -I
         pip install pytest torch
+        
+    - name: Install package
+      run: |
+        pip install -e .[test]
         
     - name: Run Pytest
       run: |
