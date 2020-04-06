@@ -14,9 +14,7 @@ __all__ = ['resnet50', 'resnet101', 'resnext50_32x4d', 'resnext101_32x8d']
 _url_format = 'https://hangzh.s3.amazonaws.com/encoding/models/{}-{}.pth'
 
 _model_sha256 = {name: checksum for checksum, name in [
-    ('528c19ca', 'resnet50'),
-    ('528c19ca', 'resnext50_32x4d'),
-    ('22405ba7', 'resnet101'),
+    ('549f9df8', 'resnet50'),
     ]}
 
 def short_hash(name):
@@ -82,7 +80,7 @@ def resnext101_32x8d(pretrained=False, root='~/.encoding/models', **kwargs):
     kwargs['groups'] = 32
     kwargs['bottleneck_width'] = 8
     kwargs['rectified_conv'] = True
-    model = ResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
+    model = ResNet(Bottleneck, [3, 4, 23, 3], **kwargs)
     if pretrained:
         model.load_state_dict(torch.hub.load_state_dict_from_url(
             rectify_model_urls['resnext101_32x8d'], progress=True, check_hash=True))
