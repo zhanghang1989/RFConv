@@ -15,6 +15,8 @@ _url_format = 'https://hangzh.s3.amazonaws.com/encoding/models/{}-{}.pth'
 
 _model_sha256 = {name: checksum for checksum, name in [
     ('549f9df8', 'resnet50'),
+    ('806a0031', 'resnet101'),
+    ('bbb72a55', 'resnext50_32x4d'),
     ]}
 
 def short_hash(name):

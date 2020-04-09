@@ -59,9 +59,9 @@ static inline void pool2d_shape_check(
 
   TORCH_CHECK(input.numel() > 0 && (ndim == 3 || ndim == 4),
               "non-empty 3D or 4D input tensor expected but got ndim: ", ndim);
-  TORCH_CHECK(kW/2 >= padW && kH/2 >= padH,
-              "pad should be smaller than half of kernel size, but got ",
-              "padW = ", padW, ", padH = ", padH, ", kW = ", kW, ", kH = ", kH);
+  //TORCH_CHECK(kW/2 >= padW && kH/2 >= padH,
+  //            "pad should be smaller than half of kernel size, but got ",
+  //            "padW = ", padW, ", padH = ", padH, ", kW = ", kW, ", kH = ", kH);
 
   TORCH_CHECK(outputWidth >= 1 && outputHeight >= 1,
               "Given input size: (",

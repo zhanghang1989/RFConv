@@ -32,7 +32,8 @@ __global__ void conv_rectify_cuda_frame(
     int wstart = pw * stride_w - pad_w;
     int hend = min(hstart + kernel_h, height + pad_h);
     int wend = min(wstart + kernel_w, width + pad_w);
-    const int pool_size = (hend - hstart) * (wend - wstart);
+    const int pool_size = ((kernel_h - 1) / dilation_h + 1) * ((kernel_w - 1) / dilation_w + 1);
+    //const int pool_size = ((hend - hstart - 1) / dilation_h + 1) * ((wend - wstart - 1) / dilation_w + 1);
     hstart = max(hstart, 0);
     wstart = max(wstart, 0);
     hend = min(hend, height);
@@ -94,8 +95,10 @@ void conv_rectify_cuda_tempalte(
   const int64_t inputHeight = input_.size(-2);
   const int64_t inputWidth = input_.size(-1);
 
-  const int64_t outputWidth = pooling_output_shape<int64_t>(inputWidth, kW, padW, dW, 1, false);
-  const int64_t outputHeight = pooling_output_shape<int64_t>(inputHeight, kH, padH, dH, 1, false);
+  //const int64_t outputHeight = pooling_output_shape<int64_t>(inputHeight, kH, padH, dH, dilationH, false);
+  //const int64_t outputWidth = pooling_output_shape<int64_t>(inputWidth, kW, padW, dW, dilationW, false);
+  const int64_t outputHeight = output.size(-2);
+  const int64_t outputWidth = output.size(-1);
 
   pool2d_shape_check(
     input_,
