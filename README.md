@@ -21,8 +21,6 @@ Rectified Convolution
 
 ### Prepare ImageNet dataset:
 
-Here we use raw image data format for simplicity, please follow [GluonCV tutorial](https://gluon-cv.mxnet.io/build/examples_datasets/recordio.html) if you would like to use RecordIO format.
-
 ```bash
 cd scripts/dataset/
 # assuming you have downloaded the dataset in the current folder
