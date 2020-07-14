@@ -11,7 +11,7 @@ from resnest.torch.resnet import ResNet, Bottleneck
 
 __all__ = ['resnet50', 'resnet101', 'resnext50_32x4d', 'resnext101_32x8d']
 
-_url_format = 'https://hangzh.s3.amazonaws.com/encoding/models/{}-{}.pth'
+_url_format = 'https://s3.us-west-1.wasabisys.com/encoding/models/{}-{}.pth'
 
 _model_sha256 = {name: checksum for checksum, name in [
     ('549f9df8', 'resnet50'),
