@@ -14,6 +14,7 @@ Rectified Convolution
 | ResNet-50        | 76.66    | 77.10     |
 | ResNet-101       | 78.13    | 78.74     |
 | ResNeXt-50_32x4d | 78.17    | 78.48     |
+| ResNeSt-50_2s8x  | 78.73    | 79.38     |
 
 
 ## Verify Models:

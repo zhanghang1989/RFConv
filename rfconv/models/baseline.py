@@ -34,10 +34,12 @@ def resnet50(pretrained=False, root='~/.encoding/models', **kwargs):
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
     """
+    kwargs['radix'] = 0
     model = ResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
     if pretrained:
         model.load_state_dict(torch.hub.load_state_dict_from_url(
-            rectify_model_urls['resnet50'], progress=True, check_hash=True))
+            rectify_model_urls['resnet50'], progress=True, check_hash=True,
+            map_location=torch.device('cpu')))
     return model
 
 def resnet101(pretrained=False, root='~/.encoding/models', **kwargs):
@@ -46,10 +48,12 @@ def resnet101(pretrained=False, root='~/.encoding/models', **kwargs):
     Args:
         pretrained (bool): If True, returns a model pre-trained on ImageNet
     """
+    kwargs['radix'] = 0
     model = ResNet(Bottleneck, [3, 4, 23, 3], **kwargs)
     if pretrained:
         model.load_state_dict(torch.hub.load_state_dict_from_url(
-            rectify_model_urls['resnet101'], progress=True, check_hash=True))
+            rectify_model_urls['resnet101'], progress=True, check_hash=True,
+            map_location=torch.device('cpu')))
     return model
 
 def resnext50_32x4d(pretrained=False, root='~/.encoding/models', **kwargs):
@@ -60,12 +64,14 @@ def resnext50_32x4d(pretrained=False, root='~/.encoding/models', **kwargs):
         pretrained (bool): If True, returns a model pre-trained on ImageNet
         progress (bool): If True, displays a progress bar of the download to stderr
     """
+    kwargs['radix'] = 0
     kwargs['groups'] = 32
     kwargs['bottleneck_width'] = 4
     model = ResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
     if pretrained:
         model.load_state_dict(torch.hub.load_state_dict_from_url(
-            rectify_model_urls['resnext50_32x4d'], progress=True, check_hash=True))
+            rectify_model_urls['resnext50_32x4d'], progress=True, check_hash=True,
+            map_location=torch.device('cpu')))
     return model
 
 def resnext101_32x8d(pretrained=False, root='~/.encoding/models', **kwargs):
@@ -76,10 +82,12 @@ def resnext101_32x8d(pretrained=False, root='~/.encoding/models', **kwargs):
         pretrained (bool): If True, returns a model pre-trained on ImageNet
         progress (bool): If True, displays a progress bar of the download to stderr
     """
+    kwargs['radix'] = 0
     kwargs['groups'] = 32
     kwargs['bottleneck_width'] = 8
     model = ResNet(Bottleneck, [3, 4, 23, 3], **kwargs)
     if pretrained:
         model.load_state_dict(torch.hub.load_state_dict_from_url(
-            rectify_model_urls['resnext101_32x8d'], progress=True, check_hash=True))
+            rectify_model_urls['resnext101_32x8d'], progress=True, check_hash=True,
+            map_location=torch.device('cpu')))
     return model
