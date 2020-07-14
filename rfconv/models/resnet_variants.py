@@ -9,7 +9,7 @@
 import torch
 from resnest.torch.resnet import ResNet, Bottleneck
 
-__all__ = ['resnet50', 'resnet101', 'resnext50_32x4d', 'resnext101_32x8d']
+__all__ = ['resnet50', 'resnet101', 'resnext50_32x4d']
 
 _url_format = 'https://s3.us-west-1.wasabisys.com/encoding/models/{}-{}.pth'
 
@@ -74,24 +74,5 @@ def resnext50_32x4d(pretrained=False, root='~/.encoding/models', **kwargs):
     if pretrained:
         model.load_state_dict(torch.hub.load_state_dict_from_url(
             rectify_model_urls['resnext50_32x4d'], progress=True, check_hash=True,
-            map_location=torch.device('cpu')))
-    return model
-
-def resnext101_32x8d(pretrained=False, root='~/.encoding/models', **kwargs):
-    r"""ResNeXt-101 32x8d model from
-    `"Aggregated Residual Transformation for Deep Neural Networks" <https://arxiv.org/pdf/1611.05431.pdf>`_
-
-    Args:
-        pretrained (bool): If True, returns a model pre-trained on ImageNet
-        progress (bool): If True, displays a progress bar of the download to stderr
-    """
-    kwargs['radix'] = 0
-    kwargs['groups'] = 32
-    kwargs['bottleneck_width'] = 8
-    kwargs['rectified_conv'] = True
-    model = ResNet(Bottleneck, [3, 4, 23, 3], **kwargs)
-    if pretrained:
-        model.load_state_dict(torch.hub.load_state_dict_from_url(
-            rectify_model_urls['resnext101_32x8d'], progress=True, check_hash=True,
             map_location=torch.device('cpu')))
     return model
