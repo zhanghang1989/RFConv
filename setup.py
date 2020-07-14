@@ -39,6 +39,7 @@ requirements = [
     'tqdm',
     'nose',
     'torch>=1.4.0',
+    'resnest',
 ]
 
 if __name__ == '__main__':
