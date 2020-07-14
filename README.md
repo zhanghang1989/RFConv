@@ -18,7 +18,6 @@ Rectified Convolution
 
 ## Verify Models:
 
-**Note:** the inference speed reported in the paper are tested using Gluon implementation with RecordIO data.
 
 ### Prepare ImageNet dataset:
 
