@@ -47,7 +47,7 @@ __global__ void conv_rectify_cuda_frame(
     else {
       mul_factor = accscalar_t(1.0) * pool_size / (hcount * wcount);
     }
-    top_data[index] = ScalarConvert<accscalar_t, scalar_t>::to(top_data[index] * mul_factor);
+    top_data[index] = static_cast<scalar_t>(top_data[index] * mul_factor);
   }
 }
 
